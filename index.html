@@ -22,14 +22,14 @@
    <section class="upload">
         <div class="content">
             <h1>#24CaratChallenge</h1>
-            <p>To take part in the challenge, upload a picture of yourself looking good or feeling good after a long day at work. 
-                    To stand a chance to win fabulous prizes from us, upload your customized picture on your social media page, tag your friends, get as many likes as you can and using the hashtag <span class="black">#24CaratChallenge.</span></p>
+            <p>
+                To take part in the challenge, upload a picture of yourself looking good or feeling good after a long day at work. 
+                To stand a chance to win fabulous prizes from us, upload your customized picture on your social media page, tag your friends, get as many likes as you can and using the hashtag <span class="black">#24CaratChallenge.</span>
+            </p>            
             <div class="bg-holder" id="output">
                 <div class="filter"></div>
                 <div id="image-holder"> </div>
-                <!-- <img src="" class="image" alt=""> -->
             </div>  
-            
             <input type="file" value="Upload Picture" class="btn upload-btn" id="fileUpload">
             <a href="#" id="btnSave" class="btn">Download Image</a>
         </div>
@@ -67,9 +67,20 @@
         }
     });
 
-    var loadFile = function (event) {
-        console.log(event);
-    }
+            $("#btnSave").click(function (e) {
+                e.preventDefault();
+
+                html2canvas(document.getElementById("output")).then(function(canvas) {
+                    console.dir('aass');
+                    // Export the canvas to its data URI representation
+                    var base64image = canvas.toDataURL("image/png");
+                    console.log(base64image);
+                    // // Open the image in a new window
+                    window.open(base64image , "_blank");
+
+                });
+
+            });
 
     // $(document).ready(function() { 
     // $("#btnSave").click(function() { 
