@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Carat</title>
+</head>
+<body>
+   <section class="carat">
+       <div class="content">
+            <img src="images/banner.jpg" alt="" class="banner">
+
+            <p>Carat is more than just an antiseptic and soap, it keeps you protected all day long. It is strong yet mild on your skin and it provides round the clock protection. Carat provides you the sensational feeling of comfort and assurance that you deserve. It exists to relieve families of the agitation that stubborn germs can cause. <br><br>
+                    Carat can also serve as an emergency first aid solution as it can be used to disinfect your cuts and bruises. It is ideal for the protection of your home against germs and bacteria.
+                    </p>
+       </div>
+       <div id="img-out"></div>
+    </section> 
+   <section class="upload">
+        <div class="content">
+            <h1>#24CaratChallenge</h1>
+            <p>To take part in the challenge, upload a picture of yourself looking good or feeling good after a long day at work. 
+                    To stand a chance to win fabulous prizes from us, upload your customized picture on your social media page, tag your friends, get as many likes as you can and using the hashtag <span class="black">#24CaratChallenge.</span></p>
+            <div class="bg-holder" id="output">
+                <div class="filter"></div>
+                <div id="image-holder"> </div>
+                <!-- <img src="" class="image" alt=""> -->
+            </div>  
+            
+            <input type="file" value="Upload Picture" class="btn upload-btn" id="fileUpload">
+            <a href="#" id="btnSave" class="btn">Download Image</a>
+        </div>
+   </section>
+
+</body>
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+<script src="js/html2canvas.min.js"></script>
+
+
+<script>
+
+    $("#fileUpload").on('change', function () {
+
+        if (typeof (FileReader) != "undefined") {
+
+            var image_holder = $("#image-holder");
+            image_holder.empty();
+
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $("<img />", {
+                    "src": e.target.result,
+                    "class": "thumb-image"
+                }).appendTo(image_holder);
+            }
+            image_holder.show();
+            reader.readAsDataURL($(this)[0].files[0]);
+        } else {
+            alert("This browser does not support FileReader.");
+        }
+    });
+
+    var loadFile = function (event) {
+        console.log(event);
+    }
+
+    // $(document).ready(function() { 
+    // $("#btnSave").click(function() { 
+    //     html2canvas($("#output"), {
+    //         onrendered: function(canvas) {
+    //             theCanvas = canvas;
+    //             document.body.appendChild(canvas);
+
+    //             // Convert and download as image 
+    //             Canvas2Image.saveAsPNG(canvas); 
+    //             $("#img-out").append(canvas);
+    //             // Clean up 
+    //             //document.body.removeChild(canvas);
+    //         }
+    //     });
+    // });
+// }); 
+</script>
+</html>

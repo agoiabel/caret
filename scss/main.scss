@@ -1,0 +1,95 @@
+@import "reset";
+@import "query";
+body{
+    font-family: 'Ubuntu', sans-serif;
+}
+.carat{
+    background: #FECB2F;
+    height: 100vh;
+    width: 50%;
+    float: left;
+    font-size: 1.2em;
+    line-height: 1.5em;
+    color: white;
+    @include mobile{
+        width: 100%;
+        height: auto;
+        padding-bottom: 40px;
+        font-size: 1em;
+        text-align: center;
+    }
+}
+.black{
+    color: black;
+}
+.upload{
+    width: 50%;
+    height: 100vh;
+    float: left;
+    line-height: 1.4em;
+    color: #575757;
+    text-align: center;
+    @include mobile{
+        width: 100%;
+    }
+}
+.bg-holder{
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+    background: #D4D4D4;
+    position: relative;
+    margin-top: 50px;
+    @include mobile{
+        width: 80vw;
+        height: 80vw;
+    }
+}
+.content{
+    width: 80%;
+    margin: 0 auto;
+}
+.filter{
+    width: 400px;
+    height: 400px;
+    background: url(../images/24c.png);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    background-size: contain;
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include mobile{
+        width: 80vw;
+        height: 80vw;
+    }
+}
+.image{
+    width: 400px;
+    z-index: 1;
+    @include mobile{
+        width: 80vw;
+    }
+}
+.btn{
+    color: white;
+    background: black;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 20px;
+    &.upload-btn{
+        background: #FECB2F;
+    }
+}
+.banner{
+    width: 100%;
+}
+h1{
+    font-size: 2em;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    color: black;
+}
